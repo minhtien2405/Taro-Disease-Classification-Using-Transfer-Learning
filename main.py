@@ -2,6 +2,7 @@ import streamlit as st
 from tensorflow.keras.models import load_model
 from PIL import Image
 from util import set_background, classify
+import pandas as pd
 
 
 # set page config
@@ -29,33 +30,26 @@ st.sidebar.info(
 st.sidebar.title("Contact")
 st.sidebar.info(
     """
-    This web app is created by [Pham Minh Tien](https://www.linkedin.com/in/minhtien2405/), Tran Nhu Hieu and Nguyen Van B.
+    This web app is created by [Pham Minh Tien](https://www.linkedin.com/in/minhtien2405/), Tran Nhu Hieu and Nguyen Van Thanh.
     """
 )
 
 st.sidebar.title("Source Code")
 st.sidebar.info(
     """
-    The source code is available in this [Github repo](
+    The source code is available in this [Github repo](https://github.com/minhtien2405/Taro-Disease-Classification).
+    """
+)
 
 # set background
 # set_background('background.png')
-
-# set page footer
-st.markdown(
-    """
-    <style>
-    .reportview-container .main footer {visibility: hidden;}    
-    """
-    , unsafe_allow_html=True
-)
 
 # upload file
 file = st.file_uploader("Upload file", type=["png", "jpg", "jpeg"])
 
 
 # load model
-model = load_model('test1_cnn.h5', compile = False)
+model = load_model('cnn_model1.h5', compile = False)
 
 # load class names
 with open('labels.txt', 'r') as f:
@@ -73,7 +67,12 @@ if st.button("Classify"):
     if file is None:
         st.write("Please upload an image file")
     else:
-        class_name, cf_score = classify(image, model, class_names)
-        st.write("Class name: ", class_name)
-        st.write("Confidence Score: ", round(cf_score*100,2), "%")
-
+        class_name, cf_healthy_score, cf_unhealthy_score = classify(image, model, class_names)
+        # show results
+        st.write("Class name: ",class_name)
+        # show confidence score
+        st.write("Confidence score of healthy taro: ",round(cf_healthy_score*100, 2) ,"%")
+        st.write("Confidence score of unhealthy taro: ",round(cf_unhealthy_score*100, 2),"%")
+        # show bar chart
+        bar_df = pd.DataFrame({cf_healthy_score, cf_unhealthy_score}, index = ['Healthy', 'Unhealthy'])
+        st.bar_chart(bar_df)

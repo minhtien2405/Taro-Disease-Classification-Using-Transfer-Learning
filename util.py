@@ -31,11 +31,12 @@ def classify(image, model, class_names):
     img_array = tf.expand_dims(img_array, 0) # Create a batch
     print(img_array.shape)
     predictions = model.predict(img_array)
+    print(predictions)
     index = np.argmax(predictions)
     class_name = class_names[index]
-    cf_score = predictions[0][index]
+    cf_healthy_score, cf_unhealthy_score = predictions[0]
     
-    return class_name, cf_score
+    return class_name, cf_healthy_score, cf_unhealthy_score
 
     
     
