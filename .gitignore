@@ -1,0 +1,4 @@
+TaroDataset/
+TaroCollection/
+__pycache__/
+cnn_model.h5
