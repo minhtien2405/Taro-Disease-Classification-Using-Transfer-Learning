@@ -1,4 +1,6 @@
 TaroDataset/
 TaroCollection/
 __pycache__/
-cnn_model1.h5
+Model/
+More/
+Taro_Disease_Classification.v4i.multiclass.zip

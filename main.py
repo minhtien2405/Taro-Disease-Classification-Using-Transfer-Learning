@@ -49,7 +49,7 @@ file = st.file_uploader("Upload file", type=["png", "jpg", "jpeg"])
 
 
 # load model
-model = load_model('cnn_model1.h5', compile = False)
+model = load_model('transfer_learning1.h5', compile = False)
 
 # load class names
 with open('labels.txt', 'r') as f:
