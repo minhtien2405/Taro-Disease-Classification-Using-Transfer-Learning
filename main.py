@@ -30,7 +30,7 @@ st.sidebar.info(
 st.sidebar.title("Contact")
 st.sidebar.info(
     """
-    This web app is created by [Pham Minh Tien](https://www.linkedin.com/in/minhtien2405/), Tran Nhu Hieu and Nguyen Van Thanh.
+    This web app is created by [Pham Minh Tien](https://www.linkedin.com/in/minhtien2405/), Tran Nhu Hieu and Nhat Linh.
     """
 )
 
