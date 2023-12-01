@@ -1,6 +1,6 @@
 # Taro-Disease-Classification
 <p align="center">
-  <img src="test/HealthyTaro/healthy176.jpg" alt="Sample Image" width="400" height="300">
+  <img src="HealthyTaro_61.jpg" alt="Sample Image" width="400" height="300">
 </p>
 
 This repository contains a deep learning solution for classifying diseases in Taro plants using convolutional neural networks (CNN), ensemble deep learning, and transfer learning with popular architectures such as VGG and ResNet. Additionally, the model is deployed in a Streamlit web application for user-friendly interaction.
