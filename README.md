@@ -20,7 +20,7 @@ This repository contains a deep learning solution for classifying diseases in Ta
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/your-username/Taro-Disease-Classification.git
+   git clone https://github.com/minhtien2405/Taro-Disease-Classification.git
    cd Taro-Disease-Classification
 2. **Install dependencies:**
    ```bash
